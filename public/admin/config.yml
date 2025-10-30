@@ -2,6 +2,7 @@ backend:
   name: github
   repo: Jaanexe/alex-doe-portfolio
   branch: main
+  auth_flow: "implicit"  # Add this line
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
