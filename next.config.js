@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Disable the static pages export
+  output: 'standalone',
+  // Enable the App Router
+  experimental: {
+    appDir: true,
+  },
   images: {
     domains: ['i.pinimg.com', 'avatars.githubusercontent.com', 'secure.gravatar.com'],
   },
@@ -11,15 +17,10 @@ const nextConfig = {
         source: '/admin/config.yml',
         destination: '/api/config',
       },
-      // Handle admin with trailing slash
+      // Handle admin routes
       {
-        source: '/admin/',
+        source: '/admin/:path*',
         destination: '/admin',
-      },
-      // Handle admin without trailing slash
-      {
-        source: '/admin',
-        destination: '/admin/',
       },
     ];
   },
@@ -39,16 +40,12 @@ const nextConfig = {
   },
   // Handle trailing slashes
   trailingSlash: true,
-  // Handle hash-based routing
-  async redirects() {
-    return [
-      {
-        source: '/admin',
-        destination: '/admin/#/',
-        permanent: true,
-      },
-    ];
-  },
 };
+
+// For production builds, ensure we're using the correct output directory
+if (process.env.NODE_ENV === 'production') {
+  nextConfig.output = 'standalone';
+  nextConfig.distDir = '.next';
+}
 
 module.exports = nextConfig;
