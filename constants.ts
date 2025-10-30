@@ -73,9 +73,9 @@ export const SKILLS: Skill[] = [
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { name: 'Email', url: 'https://jaanexe.github.io/jaanexe-portfolio-public/', icon: MailIcon },
-  { name: 'Discord', url: 'https://jaanexe.github.io/jaanexe-portfolio-public/', icon: DiscordIcon },
-  { name: 'Twitch', url: 'https://jaanexe.github.io/jaanexe-portfolio-public/', icon: TwitchIcon },
-  { name: 'YouTube', url: 'https://jaanexe.github.io/jaanexe-portfolio-public/', icon: YoutubeIcon },
-  { name: 'Instagram', url: 'https://jaanexe.github.io/jaanexe-portfolio-public/', icon: InstagramIcon },
+  { name: 'Email', url: 'https://jaanexe-portfolio.vercel.app/', icon: MailIcon },
+  { name: 'Discord', url: 'https://jaanexe-portfolio.vercel.app/', icon: DiscordIcon },
+  { name: 'Twitch', url: 'https://jaanexe-portfolio.vercel.app/', icon: TwitchIcon },
+  { name: 'YouTube', url: 'https://jaanexe-portfolio.vercel.app/', icon: YoutubeIcon },
+  { name: 'Instagram', url: 'https://jaanexe-portfolio.vercel.app/', icon: InstagramIcon },
 ];
