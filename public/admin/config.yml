@@ -2,6 +2,7 @@ backend:
   name: github
   repo: Jaanexe/alex-doe-portfolio
   branch: main
+  base_url: https://alex-doe-portfolio.vercel.app
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
