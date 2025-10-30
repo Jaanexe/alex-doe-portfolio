@@ -1,23 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Disable server components for static export
   experimental: {
-    appDir: false,
+    appDir: true,
   },
   // Enable static exports
   output: 'export',
-  // Image optimization configuration
+  // Disable the static pages optimization
   images: {
-    unoptimized: true, // Required for static exports
+    unoptimized: true,
     domains: [
       'i.pinimg.com',
       'avatars.githubusercontent.com',
       'secure.gravatar.com'
-    ],
-    // Disable image optimization API for static exports
-    loader: 'custom',
-    loaderFile: './src/utils/image-loader.js',
+    ]
   },
   // Configure rewrites for Netlify CMS - only in production
   async rewrites() {
@@ -51,11 +47,15 @@ const nextConfig = {
   },
   // Handle trailing slashes
   trailingSlash: true,
-  // Disable image optimization API
-  images: {
-    loader: 'custom',
-    loaderFile: './src/utils/image-loader.js',
-  },
 };
+
+// For production builds, ensure we're using the correct output directory
+if (process.env.NODE_ENV === 'production') {
+  nextConfig.output = 'export';
+  nextConfig.images = {
+    ...nextConfig.images,
+    unoptimized: true,
+  };
+}
 
 module.exports = nextConfig;
