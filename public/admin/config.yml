@@ -3,7 +3,7 @@ backend:
   repo: Jaanexe/alex-doe-portfolio
   branch: main
   base_url: https://alex-doe-portfolio.vercel.app
-  auth_endpoint: /api/auth
+  auth_endpoint: api/auth/github
   site_domain: alex-doe-portfolio.vercel.app
 
 media_folder: "public/images/uploads"
