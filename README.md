@@ -16,7 +16,7 @@ Built with **React + Vite + TypeScript** with a dark/moody theme and interactive
 - Fully responsive and fast-loading
 
 ## Live Demo
-Check it out here: [?](?)
+Check it out here: [https://alex-doe-portfolio.vercel.app/](https://alex-doe-portfolio.vercel.app/)
 
 ## Installation / Run Locally
 
