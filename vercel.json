@@ -3,21 +3,22 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/next"
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "out"
+      }
     }
   ],
   "routes": [
     { "handle": "filesystem" },
+    { "src": "/admin/config.yml", "dest": "/api/config" },
     { "src": "/admin/(.*)", "dest": "/admin" },
     { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/_next/static/(.*)", "dest": "/_next/static/$1" },
-    { "src": "/static/(.*)", "dest": "/static/$1" },
     { "src": "/(.*)", "dest": "/$1" }
   ],
   "env": {
     "NODE_ENV": "production"
   },
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next"
+  "buildCommand": "next build && next export -o out"
 }
 

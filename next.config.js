@@ -4,28 +4,23 @@ const nextConfig = {
   output: 'standalone',
   images: {
     domains: ['i.pinimg.com', 'avatars.githubusercontent.com', 'secure.gravatar.com'],
-  },
-  // Disable static exports as we're using server components
-  output: 'export',
-  // Handle static exports for the admin route
-  exportPathMap: async function() {
-    return {
-      '/': { page: '/' },
-      '/admin': { page: '/admin' },
-    };
+    unoptimized: true, // Required for static exports
   },
   // Configure rewrites for Netlify CMS
   async rewrites() {
-    return [
-      {
-        source: '/admin/config.yml',
-        destination: '/api/config',
-      },
-      {
-        source: '/admin/:path*',
-        destination: '/admin',
-      },
-    ];
+    if (process.env.NODE_ENV === 'production') {
+      return [
+        {
+          source: '/admin/config.yml',
+          destination: '/api/config',
+        },
+        {
+          source: '/admin/:path*',
+          destination: '/admin',
+        },
+      ];
+    }
+    return [];
   },
   // Required for NextAuth.js
   async headers() {
@@ -43,6 +38,12 @@ const nextConfig = {
   },
   // Handle trailing slashes
   trailingSlash: true,
+  // Enable static exports
+  output: 'export',
+  // Disable server components for static export
+  experimental: {
+    appDir: false,
+  },
 };
 
 module.exports = nextConfig;
