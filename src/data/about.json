@@ -1,14 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "Alex Doe",
-  "tagline": "Digital Artist, Streamer & Photographer",
-  "backgroundImage": "https://i.pinimg.com/736x/ad/4e/16/ad4e168e8e09d0504054b0788bb8f33c.jpg"
-=======
-  "title": "A Little About Me",
-  "description": "I'm Alex Doe, a digital artist and photographer passionate about creative visuals and immersive storytelling.",
-  "image": "/images/profile.svg"
-<<<<<<< HEAD
-=======
->>>>>>> f1578e1 (Updated about.json and hero.json image link)
->>>>>>> cms-setup
+  "title": "About Me",
+  "description": "Digital Artist, Streamer & Photographer",
+  "image": "https://i.pinimg.com/736x/ad/4e/16/ad4e168e8e09d0504054b0788bb8f33c.jpg"
 }
