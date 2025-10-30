@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: Jaanexe/alex-doe-portfolio
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "content"
+    label: "Site Content"
+    files:
+      - file: "src/data/hero.json"
+        label: "Hero Section"
+        name: "hero"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Background Image", name: "backgroundImage", widget: "image" }
+
+      - file: "src/data/about.json"
+        label: "About Section"
+        name: "about"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Profile Image", name: "image", widget: "image" }
+
+      - file: "src/data/gallery.json"
+        label: "Gallery"
+        name: "gallery"
+        fields:
+          - label: "Images"
+            name: "images"
+            widget: "list"
+            field: { label: "Image", name: "image", widget: "image" }

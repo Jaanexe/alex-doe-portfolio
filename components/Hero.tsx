@@ -1,10 +1,12 @@
 import React from 'react';
+import heroData from "../src/data/hero.json";
+const hero: any = Array.isArray(heroData) ? heroData[0] : heroData;
 
 const Hero: React.FC = () => {
   return (
     <section id="home" className="relative min-h-screen flex flex-col md:flex-row">
       {/* Left Side: Image */}
-      <div className="w-full md:w-1/2 min-h-[50vh] md:min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://i.pinimg.com/736x/cb/be/a9/cbbea99c4ee2f47f4eba74ec857a9683.jpg')" }}>
+  <div className="w-full md:w-1/2 min-h-[50vh] md:min-h-screen bg-cover bg-center" style={{ backgroundImage: `url('${hero.backgroundImage}')` }}>
         <div className="w-full h-full bg-black/30"></div>
       </div>
       
@@ -32,10 +34,10 @@ const Hero: React.FC = () => {
       
         <div className="relative z-10 text-center md:text-left">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 tracking-tight text-balance">
-            Alex Doe
+            {hero.name}
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl text-slate-300 mb-8 font-light text-balance">
-            Digital Artist <span className="text-cyan-400">&</span> Streamer <span className="text-cyan-400">&</span> Photographer
+            {hero.tagline}
           </p>
           <a
             href="#portfolio"

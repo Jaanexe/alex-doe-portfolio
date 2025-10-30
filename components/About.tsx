@@ -1,4 +1,5 @@
 import React from 'react';
+import aboutData from "../src/data/about.json";
 
 const TimelineItem: React.FC<{ year: string; title: string; children: React.ReactNode; isLast?: boolean }> = ({ year, title, children, isLast = false }) => (
     <div className="relative pl-8 sm:pl-12">
@@ -20,9 +21,9 @@ const About: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">My Creative Journey</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{aboutData.title}</h2>
                 <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-                  I'm a self-taught digital artist and photographer with a passion for bringing ideas to life. My journey is fueled by curiosity and a love for visual storytelling, from my first sketches to complex 3D scenes.
+                  {aboutData.description}
                 </p>
                 <div className="max-w-md">
                     <TimelineItem year="2018" title="Igniting the Spark">
@@ -38,8 +39,8 @@ const About: React.FC = () => {
             </div>
              <div className="hidden lg:block">
                 <img
-                  src="https://i.pinimg.com/736x/ad/4e/16/ad4e168e8e09d0504054b0788bb8f33c.jpg"
-                  alt="Creative Workspace"
+                  src={aboutData.image}
+                  alt={aboutData.title || 'About image'}
                   className="rounded-lg shadow-2xl object-cover w-full h-full aspect-[4/5] shadow-cyan-500/10"
                 />
             </div>

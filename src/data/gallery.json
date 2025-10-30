@@ -1,0 +1,7 @@
+{
+  "images": [
+    { "image": "/images/gallery1.jpg" },
+    { "image": "/images/gallery2.jpg" },
+    { "image": "/images/gallery3.jpg" }
+  ]
+}
