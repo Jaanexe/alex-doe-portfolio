@@ -1,12 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'standalone',
-  images: {
-    domains: ['i.pinimg.com', 'avatars.githubusercontent.com', 'secure.gravatar.com'],
-    unoptimized: true, // Required for static exports
+  // Disable server components for static export
+  experimental: {
+    appDir: false,
   },
-  // Configure rewrites for Netlify CMS
+  // Enable static exports
+  output: 'export',
+  // Image optimization configuration
+  images: {
+    unoptimized: true, // Required for static exports
+    domains: [
+      'i.pinimg.com',
+      'avatars.githubusercontent.com',
+      'secure.gravatar.com'
+    ],
+    // Disable image optimization API for static exports
+    loader: 'custom',
+    loaderFile: './src/utils/image-loader.js',
+  },
+  // Configure rewrites for Netlify CMS - only in production
   async rewrites() {
     if (process.env.NODE_ENV === 'production') {
       return [
@@ -38,11 +51,10 @@ const nextConfig = {
   },
   // Handle trailing slashes
   trailingSlash: true,
-  // Enable static exports
-  output: 'export',
-  // Disable server components for static export
-  experimental: {
-    appDir: false,
+  // Disable image optimization API
+  images: {
+    loader: 'custom',
+    loaderFile: './src/utils/image-loader.js',
   },
 };
 
