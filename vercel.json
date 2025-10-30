@@ -7,10 +7,17 @@
     }
   ],
   "routes": [
-    {
-      "src": "/admin/(.*)",
-      "dest": "/admin/index.html"
-    }
-  ]
+    { "handle": "filesystem" },
+    { "src": "/admin/(.*)", "dest": "/admin" },
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/_next/static/(.*)", "dest": "/_next/static/$1" },
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next"
 }
 
