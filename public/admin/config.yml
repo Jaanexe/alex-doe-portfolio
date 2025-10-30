@@ -2,16 +2,20 @@ backend:
   name: github
   repo: Jaanexe/alex-doe-portfolio
   branch: main
-  auth_flow: "implicit"  # Add this line
+  base_url: https://alex-doe-portfolio.vercel.app
+  auth_endpoint: /api/auth
+  site_domain: alex-doe-portfolio.vercel.app
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
+# Make sure the path is accessible from the web
+publish_mode: "simple"
 
 collections:
   - name: "content"
     label: "Site Content"
     files:
-      - file: "src/data/hero.json"
+      - file: "public/content/hero.json"
         label: "Hero Section"
         name: "hero"
         fields:
@@ -19,7 +23,7 @@ collections:
           - { label: "Tagline", name: "tagline", widget: "string" }
           - { label: "Background Image", name: "backgroundImage", widget: "image" }
 
-      - file: "src/data/about.json"
+      - file: "public/content/about.json"
         label: "About Section"
         name: "about"
         fields:
@@ -27,7 +31,7 @@ collections:
           - { label: "Description", name: "description", widget: "text" }
           - { label: "Profile Image", name: "image", widget: "image" }
 
-      - file: "src/data/gallery.json"
+      - file: "public/content/gallery.json"
         label: "Gallery"
         name: "gallery"
         fields:
