@@ -41,6 +41,8 @@ const About: React.FC = () => {
                 <img
                   src={aboutData.image}
                   alt={aboutData.title || 'About image'}
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/profile.svg'; }}
+                  loading="lazy"
                   className="rounded-lg shadow-2xl object-cover w-full h-full aspect-[4/5] shadow-cyan-500/10"
                 />
             </div>
