@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
 // Dynamically import the CMS component with no SSR
@@ -9,6 +11,24 @@ const CMS = dynamic(
 );
 
 export default function AdminPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Ensure we're using the correct URL format with hash
+    if (typeof window !== 'undefined') {
+      const { pathname, hash } = window.location;
+      
+      // If URL is /admin without hash, redirect to /admin/#/
+      if (pathname === '/admin' && !hash) {
+        router.replace('/admin/#/');
+      }
+      // If URL is /admin/ without hash, redirect to /admin/#/
+      else if (pathname === '/admin/' && !hash) {
+        router.replace('/admin/#/');
+      }
+    }
+  }, [router]);
+
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

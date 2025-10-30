@@ -6,15 +6,20 @@ const nextConfig = {
   },
   async rewrites() {
     return [
-      // Netlify CMS - Handle static assets
+      // Handle Netlify CMS config
       {
         source: '/admin/config.yml',
         destination: '/api/config',
       },
-      // Handle all other admin routes
+      // Handle admin with trailing slash
       {
-        source: '/admin/(.*)',
-        destination: '/admin/index.html',
+        source: '/admin/',
+        destination: '/admin',
+      },
+      // Handle admin without trailing slash
+      {
+        source: '/admin',
+        destination: '/admin/',
       },
     ];
   },
@@ -29,6 +34,18 @@ const nextConfig = {
             value: 'SAMEORIGIN',
           },
         ],
+      },
+    ];
+  },
+  // Handle trailing slashes
+  trailingSlash: true,
+  // Handle hash-based routing
+  async redirects() {
+    return [
+      {
+        source: '/admin',
+        destination: '/admin/#/',
+        permanent: true,
       },
     ];
   },
