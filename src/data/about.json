@@ -1,5 +1,5 @@
 {
-  "title": "A Little About Me",
-  "description": "I'm Alex Doe, a digital artist and photographer passionate about creative visuals and immersive storytelling.",
-  "image": "/images/profile.jpg"
+  "name": "Alex Doe",
+  "tagline": "Digital Artist, Streamer & Photographer",
+  "backgroundImage": "https://i.pinimg.com/736x/cb/be/a9/cbbea99c4ee2f47f4eba74ec857a9683.jpg"
 }
